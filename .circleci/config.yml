@@ -7,25 +7,28 @@ jobs:
     environment:
       MAVEN_OPTS: -Xmx3200m
 
-    working_directory: ~/back-end/back-end/
+    working_directory: ~/app
 
     steps:
       - checkout
 
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "pom.xml" }}
-          - v1-dependencies-
+      - run:
+        command: pwd
 
-      - run: mvn dependency:go-offline
-
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
-
-      # run tests!
-      - run: mvn integration-test
-
-      - store_artifacts:
-          path: ~/repo/target/
+      # - restore_cache:
+      #     keys:
+      #     - v1-dependencies-{{ checksum "pom.xml" }}
+      #     - v1-dependencies-
+      #
+      # - run: mvn dependency:go-offline
+      #
+      # - save_cache:
+      #     paths:
+      #       - ~/.m2
+      #     key: v1-dependencies-{{ checksum "pom.xml" }}
+      #
+      # # run tests!
+      # - run: mvn integration-test
+      #
+      # - store_artifacts:
+      #     path: ~/repo/target/
