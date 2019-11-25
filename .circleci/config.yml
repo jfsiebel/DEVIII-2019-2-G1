@@ -7,13 +7,13 @@ jobs:
     environment:
       MAVEN_OPTS: -Xmx3200m
 
-    working_directory: ~/app/back-end
+    # working_directory: ~/app/back-end
 
     steps:
       - checkout
 
       - run:
-          command: ls -lah
+          command: pwd && ls -lah
 
       # - restore_cache:
       #     keys:
