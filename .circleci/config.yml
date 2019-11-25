@@ -14,6 +14,7 @@ jobs:
 
       - run:
           command: pwd && ls -lah
+          working_directory: ./back-end
 
       # - restore_cache:
       #     keys:
