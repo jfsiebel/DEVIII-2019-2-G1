@@ -19,8 +19,7 @@ jobs:
           - v1-dependencies-{{ checksum "./back-end/back-end/pom.xml" }}
           - v1-dependencies-
 
-      - run: mvn dependency:go-offline
-          working_directory: ./back-end/back-end
+      - run: cd ./back-end/back-end && mvn dependency:go-offline
       #
       # - save_cache:
       #     paths:
