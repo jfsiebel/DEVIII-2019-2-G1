@@ -20,14 +20,14 @@ jobs:
           - v1-dependencies-
 
       - run: cd ./back-end/back-end && mvn dependency:go-offline
-      #
-      # - save_cache:
-      #     paths:
-      #       - ~/.m2
-      #     key: v1-dependencies-{{ checksum "pom.xml" }}
-      #
-      # # run tests!
-      # - run: mvn integration-test
-      #
-      # - store_artifacts:
-      #     path: ~/repo/target/
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "./back-end/back-end/pom.xml" }}
+
+      # run tests!
+      - run: cd ./back-end/back-end && mvn integration-test
+
+      - store_artifacts:
+          path: ~/project/back-end/back-end/target/
