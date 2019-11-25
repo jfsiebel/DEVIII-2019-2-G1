@@ -7,7 +7,7 @@ jobs:
     environment:
       MAVEN_OPTS: -Xmx3200m
 
-    working_directory: ~/app
+    working_directory: ~/app/back-end
 
     steps:
       - checkout
