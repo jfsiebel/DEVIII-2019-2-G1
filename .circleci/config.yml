@@ -13,7 +13,7 @@ jobs:
       - checkout
 
       - run:
-        command: pwd
+          command: pwd
 
       # - restore_cache:
       #     keys:
